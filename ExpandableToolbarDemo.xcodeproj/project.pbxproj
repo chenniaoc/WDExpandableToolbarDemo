@@ -16,6 +16,17 @@
 		899D631B1A72676400010D87 /* ExpandableToolbarDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D631A1A72676400010D87 /* ExpandableToolbarDemoTests.m */; };
 		899D632A1A72679500010D87 /* WDExpendableToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63261A72679500010D87 /* WDExpendableToolbar.m */; };
 		899D632B1A72679500010D87 /* WDExpendableToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63281A72679500010D87 /* WDExpendableToolbarItem.m */; };
+		89AE53E81A72B80E00532349 /* 01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53DE1A72B80E00532349 /* 01@2x.png */; };
+		89AE53E91A72B80E00532349 /* 02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53DF1A72B80E00532349 /* 02@2x.png */; };
+		89AE53EA1A72B80E00532349 /* 03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E01A72B80E00532349 /* 03@2x.png */; };
+		89AE53EB1A72B80E00532349 /* 04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E11A72B80E00532349 /* 04@2x.png */; };
+		89AE53EC1A72B80E00532349 /* 06@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E21A72B80E00532349 /* 06@2x.png */; };
+		89AE53ED1A72B80E00532349 /* 07@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E31A72B80E00532349 /* 07@2x.png */; };
+		89AE53EE1A72B80E00532349 /* 08@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E41A72B80E00532349 /* 08@2x.png */; };
+		89AE53EF1A72B80E00532349 /* 09@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E51A72B80E00532349 /* 09@2x.png */; };
+		89AE53F01A72B80E00532349 /* 10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E61A72B80E00532349 /* 10@2x.png */; };
+		89AE53F11A72B80E00532349 /* 11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E71A72B80E00532349 /* 11@2x.png */; };
+		89AE53F31A72B8B700532349 /* 05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53F21A72B8B700532349 /* 05@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +57,17 @@
 		899D63261A72679500010D87 /* WDExpendableToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDExpendableToolbar.m; sourceTree = "<group>"; };
 		899D63271A72679500010D87 /* WDExpendableToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDExpendableToolbarItem.h; sourceTree = "<group>"; };
 		899D63281A72679500010D87 /* WDExpendableToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDExpendableToolbarItem.m; sourceTree = "<group>"; };
+		89AE53DE1A72B80E00532349 /* 01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01@2x.png"; sourceTree = "<group>"; };
+		89AE53DF1A72B80E00532349 /* 02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@2x.png"; sourceTree = "<group>"; };
+		89AE53E01A72B80E00532349 /* 03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03@2x.png"; sourceTree = "<group>"; };
+		89AE53E11A72B80E00532349 /* 04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04@2x.png"; sourceTree = "<group>"; };
+		89AE53E21A72B80E00532349 /* 06@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06@2x.png"; sourceTree = "<group>"; };
+		89AE53E31A72B80E00532349 /* 07@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07@2x.png"; sourceTree = "<group>"; };
+		89AE53E41A72B80E00532349 /* 08@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "08@2x.png"; sourceTree = "<group>"; };
+		89AE53E51A72B80E00532349 /* 09@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09@2x.png"; sourceTree = "<group>"; };
+		89AE53E61A72B80E00532349 /* 10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10@2x.png"; sourceTree = "<group>"; };
+		89AE53E71A72B80E00532349 /* 11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11@2x.png"; sourceTree = "<group>"; };
+		89AE53F21A72B8B700532349 /* 05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +110,7 @@
 		899D62FD1A72676300010D87 /* ExpandableToolbarDemo */ = {
 			isa = PBXGroup;
 			children = (
+				89AE53DD1A72B80E00532349 /* icons */,
 				899D63021A72676300010D87 /* AppDelegate.h */,
 				899D63031A72676300010D87 /* AppDelegate.m */,
 				899D63051A72676300010D87 /* ViewController.h */,
@@ -135,6 +158,24 @@
 				899D63281A72679500010D87 /* WDExpendableToolbarItem.m */,
 			);
 			path = WDExpendableToolbar;
+			sourceTree = "<group>";
+		};
+		89AE53DD1A72B80E00532349 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				89AE53F21A72B8B700532349 /* 05@2x.png */,
+				89AE53DE1A72B80E00532349 /* 01@2x.png */,
+				89AE53DF1A72B80E00532349 /* 02@2x.png */,
+				89AE53E01A72B80E00532349 /* 03@2x.png */,
+				89AE53E11A72B80E00532349 /* 04@2x.png */,
+				89AE53E21A72B80E00532349 /* 06@2x.png */,
+				89AE53E31A72B80E00532349 /* 07@2x.png */,
+				89AE53E41A72B80E00532349 /* 08@2x.png */,
+				89AE53E51A72B80E00532349 /* 09@2x.png */,
+				89AE53E61A72B80E00532349 /* 10@2x.png */,
+				89AE53E71A72B80E00532349 /* 11@2x.png */,
+			);
+			path = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +258,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AE53F11A72B80E00532349 /* 11@2x.png in Resources */,
+				89AE53E91A72B80E00532349 /* 02@2x.png in Resources */,
 				899D630A1A72676300010D87 /* Main.storyboard in Resources */,
+				89AE53F01A72B80E00532349 /* 10@2x.png in Resources */,
 				899D630F1A72676400010D87 /* LaunchScreen.xib in Resources */,
+				89AE53ED1A72B80E00532349 /* 07@2x.png in Resources */,
+				89AE53E81A72B80E00532349 /* 01@2x.png in Resources */,
+				89AE53EE1A72B80E00532349 /* 08@2x.png in Resources */,
+				89AE53F31A72B8B700532349 /* 05@2x.png in Resources */,
+				89AE53EB1A72B80E00532349 /* 04@2x.png in Resources */,
+				89AE53EA1A72B80E00532349 /* 03@2x.png in Resources */,
 				899D630C1A72676400010D87 /* Images.xcassets in Resources */,
+				89AE53EC1A72B80E00532349 /* 06@2x.png in Resources */,
+				89AE53EF1A72B80E00532349 /* 09@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +486,7 @@
 				899D63201A72676400010D87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		899D63211A72676400010D87 /* Build configuration list for PBXNativeTarget "ExpandableToolbarDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +495,7 @@
 				899D63231A72676400010D87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

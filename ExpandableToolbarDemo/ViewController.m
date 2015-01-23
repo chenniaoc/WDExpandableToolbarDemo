@@ -35,14 +35,14 @@
     et.delegate = self;
     
     
-    a = [NSMutableArray array];
-    
-    for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
-        item.frame = CGRectMake(0, 0, 100, 44);
-        [a addObject:item];
-    }
-    
+//    a = [NSMutableArray array];
+//    
+//    for (int i = 0 ; i< 4; i++) {
+//        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+//        item.frame = CGRectMake(0, 0, 100, 44);
+//        [a addObject:item];
+//    }
+//    
     WDExpendableToolbar *etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:et];
     
     etRoot.delegate = self;
@@ -54,85 +54,112 @@
         item.frame = CGRectMake(0, 0, 100, 44);
         [a addObject:item];
     }
+//
+//    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+//    
+//    etRoot.delegate = self;
+//    
+//    
+//    a = [NSMutableArray array];
+//    for (int i = 0 ; i< 4; i++) {
+//        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+//        item.frame = CGRectMake(0, 0, 100, 44);
+//        [a addObject:item];
+//    }
+//    
+//    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+//    
+//    etRoot.delegate = self;
+//    
+//    
+//    
+//    _topToolbar = etRoot;
+//    
+//    
+//    a = [NSMutableArray array];
+//    for (int i = 0 ; i< 4; i++) {
+//        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+//        item.frame = CGRectMake(0, 0, 100, 44);
+//        [a addObject:item];
+//    }
+//    
+//    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+//    
+//    etRoot.delegate = self;
+//    
+//    
+//    
+//    _topToolbar = etRoot;
+//    
+//    
+//    a = [NSMutableArray array];
+//    for (int i = 0 ; i< 4; i++) {
+//        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+//        item.frame = CGRectMake(0, 0, 100, 44);
+//        [a addObject:item];
+//    }
+//    
+//    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+//    
+//    etRoot.delegate = self;
+//    
+//    
+//    
+//    _topToolbar = etRoot;
+//    
+//    a = [NSMutableArray array];
+//    for (int i = 0 ; i< 4; i++) {
+//        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+//        item.frame = CGRectMake(0, 0, 100, 44);
+//        [a addObject:item];
+//    }
+//    
+//    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+//    
+//    etRoot.delegate = self;
+//    
+//    
+//    
+//    _topToolbar = etRoot;
+//    
+//    
+//    a = [NSMutableArray array];
+//    for (int i = 0 ; i< 4; i++) {
+//        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+//        item.frame = CGRectMake(0, 0, 100, 44);
+//        [a addObject:item];
+//    }
+//    
+//    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+//    
+//    etRoot.delegate = self;
     
-    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-    
-    etRoot.delegate = self;
     
     
-    a = [NSMutableArray array];
-    for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
-        item.frame = CGRectMake(0, 0, 100, 44);
-        [a addObject:item];
+    int count = 30;
+    
+    while (count > 0) {
+        
+        a = [NSMutableArray array];
+        int randomCount = MAX(arc4random() % 30, 10);
+        for (int i = 0 ; i< randomCount; i++) {
+            
+            NSString *filename = [NSString stringWithFormat:@"%02d", (arc4random()% 11 + 1)];
+            WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+            item.frame = CGRectMake(0, 0, 100, 30);
+            NSLog(@"filenmae:%@", filename);
+            UIImage *image = [UIImage imageNamed:filename];
+            item.imageView.contentMode = UIViewContentModeScaleAspectFit;;
+            [item setImage:image forState:UIControlStateNormal];
+            [a addObject:item];
+        }
+        
+        etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+        etRoot.horizontalPadding = 0.1;
+        
+        etRoot.delegate = self;
+        count --;
     }
-    
-    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-    
-    etRoot.delegate = self;
-    
-    
-    
-    _topToolbar = etRoot;
-    
-    
-    a = [NSMutableArray array];
-    for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
-        item.frame = CGRectMake(0, 0, 100, 44);
-        [a addObject:item];
-    }
-    
-    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-    
-    etRoot.delegate = self;
-    
-    
-    
-    _topToolbar = etRoot;
-    
-    
-    a = [NSMutableArray array];
-    for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
-        item.frame = CGRectMake(0, 0, 100, 44);
-        [a addObject:item];
-    }
-    
-    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-    
-    etRoot.delegate = self;
-    
-    
-    
-    _topToolbar = etRoot;
-    
-    a = [NSMutableArray array];
-    for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
-        item.frame = CGRectMake(0, 0, 100, 44);
-        [a addObject:item];
-    }
-    
-    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-    
-    etRoot.delegate = self;
-    
-    
-    
-    _topToolbar = etRoot;
-    
-    
-    a = [NSMutableArray array];
-    for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
-        item.frame = CGRectMake(0, 0, 100, 44);
-        [a addObject:item];
-    }
-    
-    etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-    
-    etRoot.delegate = self;
     
     
     

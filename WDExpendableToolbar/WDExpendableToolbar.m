@@ -167,7 +167,12 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 {
     WDExpendableToolbar *topTemp = self;
     while (topTemp != nil) {
-        topTemp = objc_getAssociatedObject(topTemp, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        WDExpendableToolbar *temp = objc_getAssociatedObject(topTemp, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        if (temp == nil) {
+            break;
+        }
+        topTemp = temp;
+        
     }
     return topTemp ? topTemp : self;
 }
@@ -196,7 +201,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
     [m_items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *item = obj;
         CGRect f = item.frame;
-        f.origin.x = idx * buttonWidth;
+        f.origin.x = idx * (buttonWidth + leftPadding);
         f.size.width = buttonWidth;
         item.frame = f;
         [self addSubview:item];
@@ -268,6 +273,18 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
         [UIView animateWithDuration:0.3 animations:^{
            m_nextLevelToolbar.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height + m_nextLevelToolbar.frame.size.height / 2);
         }];
+        
+        
+        WDExpendableToolbar *superToolbar = objc_getAssociatedObject(m_nextLevelToolbar, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        CGFloat heightOffset = self.frame.size.height;
+        while (superToolbar != nil) {
+            CGRect superF = superToolbar.frame;
+            superF.size.height += heightOffset;
+//            heightOffset += superF.size.height;
+            superToolbar.frame = superF;
+            superToolbar = objc_getAssociatedObject(superToolbar, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        }
+        
         m_nextLevelToolbar.isShowing = YES;
     }
     
