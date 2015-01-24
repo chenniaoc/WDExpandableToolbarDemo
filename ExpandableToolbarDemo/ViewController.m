@@ -7,12 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "WDExpendableToolbar.h"
-#import "WDExpendableToolbarItem.h"
+#import "WDExpandableToolbar.h"
+#import "WDExpandableToolbarItem.h"
 
-@interface ViewController () <WDExpendableToolbarDelegate>
+@interface ViewController () <WDExpandableToolbarDelegate>
 
-@property (nonatomic, strong) WDExpendableToolbar *topToolbar;
+@property (nonatomic, strong) WDExpandableToolbar *topToolbar;
 
 @end
 
@@ -25,12 +25,12 @@
     NSMutableArray *a = [NSMutableArray array];
     
     for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+        WDExpandableToolbarItem *item = [WDExpandableToolbarItem new];
         item.frame = CGRectMake(0, 0, 100, 44);
         [a addObject:item];
     }
     
-    WDExpendableToolbar *et = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:nil];
+    WDExpandableToolbar *et = [[WDExpandableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpandToolbar:nil];
     
     et.delegate = self;
     
@@ -43,14 +43,14 @@
 //        [a addObject:item];
 //    }
 //    
-    WDExpendableToolbar *etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:et];
+    WDExpandableToolbar *etRoot = [[WDExpandableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpandToolbar:et];
     
     etRoot.delegate = self;
     
     a = [NSMutableArray array];
     
     for (int i = 0 ; i< 4; i++) {
-        WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+        WDExpandableToolbarItem *item = [WDExpandableToolbarItem new];
         item.frame = CGRectMake(0, 0, 100, 44);
         [a addObject:item];
     }
@@ -145,7 +145,7 @@
         for (int i = 0 ; i< randomCount; i++) {
             
             NSString *filename = [NSString stringWithFormat:@"%02d", (arc4random()% 11 + 1)];
-            WDExpendableToolbarItem *item = [WDExpendableToolbarItem new];
+            WDExpandableToolbarItem *item = [WDExpandableToolbarItem new];
             item.frame = CGRectMake(0, 0, 100, 30);
             NSLog(@"filenmae:%@", filename);
             UIImage *image = [UIImage imageNamed:filename];
@@ -154,7 +154,7 @@
             [a addObject:item];
         }
         
-        etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
+        etRoot = [[WDExpandableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpandToolbar:etRoot];
         etRoot.horizontalPadding = 0.01;
         
         etRoot.delegate = self;
@@ -176,11 +176,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)expendToolbar:(WDExpendableToolbar *)toolbar didClickedAtIndexPath:(NSIndexPath *)indexPath
+- (void)expandToolbar:(WDExpandableToolbar *)toolbar didClickedAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%@", toolbar);
     
-    WDExpendableToolbar *top = [toolbar topToolbar];
+    WDExpandableToolbar *top = [toolbar topToolbar];
     
     CGFloat height = toolbar.totalVisibleHeight;
     
@@ -189,11 +189,11 @@
     
 }
 
-- (BOOL)shouldShowExpendToolbar:(WDExpendableToolbar *)expendToolbar whenToolbarItemDidClicked:(WDExpendableToolbarItem *)toolbarItem
+- (BOOL)shouldShowExpandToolbar:(WDExpandableToolbar *)expandToolbar whenToolbarItemDidClicked:(WDExpandableToolbarItem *)toolbarItem
 {
-    NSLog(@"shouldShowExpendToolbar %@", NSStringFromSelector(_cmd));
+    NSLog(@"shouldShowExpandToolbar %@", NSStringFromSelector(_cmd));
     
-    return [expendToolbar nextLevelToolbar]? YES : NO;
+    return [expandToolbar nextLevelToolbar]? YES : NO;
 }
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WDExpendableToolbarItem : UIButton
+@interface WDExpandableToolbarItem : UIButton
 
 @end

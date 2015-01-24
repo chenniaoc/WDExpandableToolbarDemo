@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890BEC9D1A7342E300182C9A /* WDExpandableToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BEC9A1A7342E300182C9A /* WDExpandableToolbar.m */; };
+		890BEC9E1A7342E300182C9A /* WDExpandableToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 890BEC9C1A7342E300182C9A /* WDExpandableToolbarItem.m */; };
 		899D63011A72676300010D87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63001A72676300010D87 /* main.m */; };
 		899D63041A72676300010D87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63031A72676300010D87 /* AppDelegate.m */; };
 		899D63071A72676300010D87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63061A72676300010D87 /* ViewController.m */; };
@@ -14,8 +16,6 @@
 		899D630C1A72676400010D87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 899D630B1A72676400010D87 /* Images.xcassets */; };
 		899D630F1A72676400010D87 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 899D630D1A72676400010D87 /* LaunchScreen.xib */; };
 		899D631B1A72676400010D87 /* ExpandableToolbarDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D631A1A72676400010D87 /* ExpandableToolbarDemoTests.m */; };
-		899D632A1A72679500010D87 /* WDExpendableToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63261A72679500010D87 /* WDExpendableToolbar.m */; };
-		899D632B1A72679500010D87 /* WDExpendableToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D63281A72679500010D87 /* WDExpendableToolbarItem.m */; };
 		89AE53E81A72B80E00532349 /* 01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53DE1A72B80E00532349 /* 01@2x.png */; };
 		89AE53E91A72B80E00532349 /* 02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53DF1A72B80E00532349 /* 02@2x.png */; };
 		89AE53EA1A72B80E00532349 /* 03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AE53E01A72B80E00532349 /* 03@2x.png */; };
@@ -40,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		890BEC991A7342E300182C9A /* WDExpandableToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDExpandableToolbar.h; sourceTree = "<group>"; };
+		890BEC9A1A7342E300182C9A /* WDExpandableToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDExpandableToolbar.m; sourceTree = "<group>"; };
+		890BEC9B1A7342E300182C9A /* WDExpandableToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDExpandableToolbarItem.h; sourceTree = "<group>"; };
+		890BEC9C1A7342E300182C9A /* WDExpandableToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDExpandableToolbarItem.m; sourceTree = "<group>"; };
 		899D62FB1A72676300010D87 /* ExpandableToolbarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableToolbarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		899D62FF1A72676300010D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		899D63001A72676300010D87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,10 +57,6 @@
 		899D63141A72676400010D87 /* ExpandableToolbarDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandableToolbarDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		899D63191A72676400010D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		899D631A1A72676400010D87 /* ExpandableToolbarDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpandableToolbarDemoTests.m; sourceTree = "<group>"; };
-		899D63251A72679500010D87 /* WDExpendableToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDExpendableToolbar.h; sourceTree = "<group>"; };
-		899D63261A72679500010D87 /* WDExpendableToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDExpendableToolbar.m; sourceTree = "<group>"; };
-		899D63271A72679500010D87 /* WDExpendableToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDExpendableToolbarItem.h; sourceTree = "<group>"; };
-		899D63281A72679500010D87 /* WDExpendableToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDExpendableToolbarItem.m; sourceTree = "<group>"; };
 		89AE53DE1A72B80E00532349 /* 01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01@2x.png"; sourceTree = "<group>"; };
 		89AE53DF1A72B80E00532349 /* 02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@2x.png"; sourceTree = "<group>"; };
 		89AE53E01A72B80E00532349 /* 03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03@2x.png"; sourceTree = "<group>"; };
@@ -88,10 +88,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		890BEC981A7342E300182C9A /* WDExpandableToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				890BEC991A7342E300182C9A /* WDExpandableToolbar.h */,
+				890BEC9A1A7342E300182C9A /* WDExpandableToolbar.m */,
+				890BEC9B1A7342E300182C9A /* WDExpandableToolbarItem.h */,
+				890BEC9C1A7342E300182C9A /* WDExpandableToolbarItem.m */,
+			);
+			path = WDExpandableToolbar;
+			sourceTree = "<group>";
+		};
 		899D62F21A72676300010D87 = {
 			isa = PBXGroup;
 			children = (
-				899D63241A72679500010D87 /* WDExpendableToolbar */,
+				890BEC981A7342E300182C9A /* WDExpandableToolbar */,
 				899D62FD1A72676300010D87 /* ExpandableToolbarDemo */,
 				899D63171A72676400010D87 /* ExpandableToolbarDemoTests */,
 				899D62FC1A72676300010D87 /* Products */,
@@ -147,17 +158,6 @@
 				899D63191A72676400010D87 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		899D63241A72679500010D87 /* WDExpendableToolbar */ = {
-			isa = PBXGroup;
-			children = (
-				899D63251A72679500010D87 /* WDExpendableToolbar.h */,
-				899D63261A72679500010D87 /* WDExpendableToolbar.m */,
-				899D63271A72679500010D87 /* WDExpendableToolbarItem.h */,
-				899D63281A72679500010D87 /* WDExpendableToolbarItem.m */,
-			);
-			path = WDExpendableToolbar;
 			sourceTree = "<group>";
 		};
 		89AE53DD1A72B80E00532349 /* icons */ = {
@@ -291,8 +291,8 @@
 			files = (
 				899D63071A72676300010D87 /* ViewController.m in Sources */,
 				899D63041A72676300010D87 /* AppDelegate.m in Sources */,
-				899D632B1A72679500010D87 /* WDExpendableToolbarItem.m in Sources */,
-				899D632A1A72679500010D87 /* WDExpendableToolbar.m in Sources */,
+				890BEC9E1A7342E300182C9A /* WDExpandableToolbarItem.m in Sources */,
+				890BEC9D1A7342E300182C9A /* WDExpandableToolbar.m in Sources */,
 				899D63011A72676300010D87 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

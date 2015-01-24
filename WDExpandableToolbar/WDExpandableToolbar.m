@@ -6,23 +6,23 @@
 //  Copyright (c) 2015 koudai. All rights reserved.
 //
 
-#import "WDExpendableToolbar.h"
+#import "WDExpandableToolbar.h"
 
 #import <objc/runtime.h>
 
-static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExpendableToolbarPreviousToolbarStorageKey";
+static NSString * const kWDExpandableToolbarPreviousToolbarStorageKey = @"kWDExpandableToolbarPreviousToolbarStorageKey";
 
-@interface WDExpendableToolbar ()
+@interface WDExpandableToolbar ()
 {
     NSMutableArray *m_items;
     
     /// 本层菜单需要弹出的下级菜单
-    WDExpendableToolbar *m_nextLevelToolbar;
+    WDExpandableToolbar *m_nextLevelToolbar;
     
     struct kWDDelegateFlag
     {
-        int expendToolbarDidClickedAtIndexPath:1;
-        int shouldShowExpendToolbarWhenToolbarItemDidClicked:1;
+        int expandToolbarDidClickedAtIndexPath:1;
+        int shouldShowExpandToolbarWhenToolbarItemDidClicked:1;
     } m_DelegateFlag;
     
     // 是否正在显示nextlevel
@@ -33,15 +33,15 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 
 @end
 
-@implementation WDExpendableToolbar
+@implementation WDExpandableToolbar
 
 
 
 - (instancetype)initWithFrame:(CGRect)frame
                      TopItems:(NSArray *)items
-           expendToolbarItems:(NSArray *)expandItems
+           expandToolbarItems:(NSArray *)expandItems
 {
-    self = [self initWithTopItems:items expendToolbarItems:expandItems];
+    self = [self initWithTopItems:items expandToolbarItems:expandItems];
     if (self) {
         self.frame = frame;
     }
@@ -49,15 +49,15 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 }
 
 - (instancetype)initWithTopItems:(NSArray *)items
-              expendToolbarItems:(NSArray *)expandItems
+              expandToolbarItems:(NSArray *)expandItems
 {
     self = [super init];
     if (self) {
         m_items = [items mutableCopy];
         if (expandItems && expandItems.count > 0) {
-            m_nextLevelToolbar = [[WDExpendableToolbar alloc] initWithFrame:self.frame
+            m_nextLevelToolbar = [[WDExpandableToolbar alloc] initWithFrame:self.frame
                                                                    TopItems:expandItems
-                                                         expendToolbarItems:nil];
+                                                         expandToolbarItems:nil];
         }
 
         [self _initialize];
@@ -67,10 +67,10 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 
 - (instancetype)initWithFrame:(CGRect) frame
                      TopItems:(NSArray *)items
-        extLevelexpendToolbar:(WDExpendableToolbar *)nextLevelToolbar
+        extLevelexpandToolbar:(WDExpandableToolbar *)nextLevelToolbar
 {
     self = [self initWithTopItems:items
-           nextLevelexpendToolbar:nextLevelToolbar];
+           nextLevelexpandToolbar:nextLevelToolbar];
     if (self) {
         self.frame = frame;
         
@@ -80,7 +80,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 }
 
 - (instancetype)initWithTopItems:(NSArray *)items
-          nextLevelexpendToolbar:(WDExpendableToolbar *)nextLevelToolbar
+          nextLevelexpandToolbar:(WDExpandableToolbar *)nextLevelToolbar
 {
     self = [super init];
     if (self) {
@@ -88,7 +88,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
         m_nextLevelToolbar = nextLevelToolbar;
         
         if (m_nextLevelToolbar) {
-            objc_setAssociatedObject(m_nextLevelToolbar, &kWDExpendableToolbarPreviousToolbarStorageKey, self, OBJC_ASSOCIATION_ASSIGN);
+            objc_setAssociatedObject(m_nextLevelToolbar, &kWDExpandableToolbarPreviousToolbarStorageKey, self, OBJC_ASSOCIATION_ASSIGN);
         }
     }
     
@@ -106,20 +106,20 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 - (void)_createItems
 {
     [m_items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        WDExpendableToolbarItem *item = obj;
+        WDExpandableToolbarItem *item = obj;
         item.tag = idx;
         [item addTarget:self action:@selector(_itemButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 //        [self addSubview:item];
     }];
 }
 
-- (void)setDelegate:(id<WDExpendableToolbarDelegate>)delegate
+- (void)setDelegate:(id<WDExpandableToolbarDelegate>)delegate
 {
-    if ([delegate respondsToSelector:@selector(expendToolbar:didClickedAtIndexPath:)]) {
-        m_DelegateFlag.expendToolbarDidClickedAtIndexPath = 1;
+    if ([delegate respondsToSelector:@selector(expandToolbar:didClickedAtIndexPath:)]) {
+        m_DelegateFlag.expandToolbarDidClickedAtIndexPath = 1;
     }
-    if ([delegate respondsToSelector:@selector(shouldShowExpendToolbar:whenToolbarItemDidClicked:)]) {
-        m_DelegateFlag.shouldShowExpendToolbarWhenToolbarItemDidClicked = 1;
+    if ([delegate respondsToSelector:@selector(shouldShowExpandToolbar:whenToolbarItemDidClicked:)]) {
+        m_DelegateFlag.shouldShowExpandToolbarWhenToolbarItemDidClicked = 1;
     }
     _delegate = delegate;
 }
@@ -129,11 +129,11 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 
 - (BOOL)isTopToolbar
 {
-    id superToolbar = objc_getAssociatedObject(self, &kWDExpendableToolbarPreviousToolbarStorageKey);
+    id superToolbar = objc_getAssociatedObject(self, &kWDExpandableToolbarPreviousToolbarStorageKey);
     return superToolbar ? NO : YES;
 }
 
-- (WDExpendableToolbar *)nextLevelToolbar
+- (WDExpandableToolbar *)nextLevelToolbar
 {
     return m_nextLevelToolbar;
 }
@@ -142,12 +142,12 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 {
     CGFloat totalHeight = 0;
     // 向上层方向找，包含自己.
-    WDExpendableToolbar *temp = self;
+    WDExpandableToolbar *temp = self;
     while (temp != nil) {
         if (temp.isShowing) {
             totalHeight += temp.frame.size.height;
         }
-        temp = objc_getAssociatedObject(temp, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        temp = objc_getAssociatedObject(temp, &kWDExpandableToolbarPreviousToolbarStorageKey);
     }
     
     temp = m_nextLevelToolbar;
@@ -169,11 +169,11 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
  * @return WDExpendableToolbar 如果本身就是最顶端，返回自己，否则返回最顶的
  *
  ***********************************/
-- (WDExpendableToolbar *)topToolbar
+- (WDExpandableToolbar *)topToolbar
 {
-    WDExpendableToolbar *topTemp = self;
+    WDExpandableToolbar *topTemp = self;
     while (topTemp != nil) {
-        WDExpendableToolbar *temp = objc_getAssociatedObject(topTemp, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        WDExpandableToolbar *temp = objc_getAssociatedObject(topTemp, &kWDExpandableToolbarPreviousToolbarStorageKey);
         if (temp == nil) {
             break;
         }
@@ -215,11 +215,11 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
     
 }
 
-- (void)_itemButtonClicked:(WDExpendableToolbarItem *)item
+- (void)_itemButtonClicked:(WDExpandableToolbarItem *)item
 {
     BOOL shouldShow = YES;
-    if (m_DelegateFlag.shouldShowExpendToolbarWhenToolbarItemDidClicked) {
-        shouldShow = [_delegate shouldShowExpendToolbar:self whenToolbarItemDidClicked:item];
+    if (m_DelegateFlag.shouldShowExpandToolbarWhenToolbarItemDidClicked) {
+        shouldShow = [_delegate shouldShowExpandToolbar:self whenToolbarItemDidClicked:item];
     }
     
     if (shouldShow) {
@@ -229,8 +229,8 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
     }
     
     
-    if (m_DelegateFlag.expendToolbarDidClickedAtIndexPath) {
-        [_delegate expendToolbar:self didClickedAtIndexPath:nil];
+    if (m_DelegateFlag.expandToolbarDidClickedAtIndexPath) {
+        [_delegate expandToolbar:self didClickedAtIndexPath:nil];
     }
     
     [self _adjustFrame];
@@ -242,7 +242,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 
 - (void)_adjustFrame
 {
-    WDExpendableToolbar *toolbar = [self nextLevelToolbar];;
+    WDExpandableToolbar *toolbar = [self nextLevelToolbar];;
     CGRect myFrame = self.frame;
     
     CGFloat heightOffset = 0;
@@ -258,7 +258,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
         
         // top toolbar - [N - 1]位置的toolbar，如果最下层的toolbar已经处于展示状态，就不用重新算了
         // 直接返回.
-        WDExpendableToolbar *superToolbar = objc_getAssociatedObject(self, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        WDExpandableToolbar *superToolbar = objc_getAssociatedObject(self, &kWDExpandableToolbarPreviousToolbarStorageKey);
         if (m_nextLevelToolbar && m_nextLevelToolbar.isShowing) {
             if (superToolbar || [self isTopToolbar]) {
                 return;
@@ -275,7 +275,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
         self.frame = myFrame;
     } else{
         
-        WDExpendableToolbar *superToolbar = objc_getAssociatedObject(self, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        WDExpandableToolbar *superToolbar = objc_getAssociatedObject(self, &kWDExpandableToolbarPreviousToolbarStorageKey);
         // 上面还有
         if (superToolbar) {
             
@@ -298,14 +298,14 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
         }];
         
         
-        WDExpendableToolbar *superToolbar = objc_getAssociatedObject(m_nextLevelToolbar, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        WDExpandableToolbar *superToolbar = objc_getAssociatedObject(m_nextLevelToolbar, &kWDExpandableToolbarPreviousToolbarStorageKey);
         CGFloat heightOffset = self.frame.size.height;
         while (superToolbar != nil) {
             CGRect superF = superToolbar.frame;
             superF.size.height += heightOffset;
 //            heightOffset += superF.size.height;
             superToolbar.frame = superF;
-            superToolbar = objc_getAssociatedObject(superToolbar, &kWDExpendableToolbarPreviousToolbarStorageKey);
+            superToolbar = objc_getAssociatedObject(superToolbar, &kWDExpandableToolbarPreviousToolbarStorageKey);
         }
         
         m_nextLevelToolbar.isShowing = YES;

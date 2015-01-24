@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 koudai. All rights reserved.
 //
 
-#import "WDExpendableToolbarItem.h"
+#import "WDExpandableToolbarItem.h"
 
-@implementation WDExpendableToolbarItem
+@implementation WDExpandableToolbarItem
 
 
 // Only override drawRect: if you perform custom drawing.
