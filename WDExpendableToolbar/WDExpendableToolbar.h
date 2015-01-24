@@ -55,6 +55,8 @@ didClickedAtIndexPath:(NSIndexPath *)indexPath;
 /// 两边的水平填充(0.0-1.0)
 @property (nonatomic, assign) CGFloat horizontalPadding;
 
+@property (nonatomic, assign) BOOL isTopToolbar;
+
 
 - (instancetype)initWithFrame:(CGRect) frame
                      TopItems:(NSArray *)items

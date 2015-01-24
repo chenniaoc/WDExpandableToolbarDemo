@@ -127,6 +127,12 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
 
 #pragma mark -Accessor
 
+- (BOOL)isTopToolbar
+{
+    id superToolbar = objc_getAssociatedObject(self, &kWDExpendableToolbarPreviousToolbarStorageKey);
+    return superToolbar ? NO : YES;
+}
+
 - (WDExpendableToolbar *)nextLevelToolbar
 {
     return m_nextLevelToolbar;
@@ -201,7 +207,7 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
     [m_items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *item = obj;
         CGRect f = item.frame;
-        f.origin.x = idx * (buttonWidth + leftPadding);
+        f.origin.x = idx * (buttonWidth) + leftPadding;
         f.size.width = buttonWidth;
         item.frame = f;
         [self addSubview:item];
@@ -248,7 +254,24 @@ static NSString * const kWDExpendableToolbarPreviousToolbarStorageKey = @"kWDExp
     }
     
     if (heightOffset > 0) {
-        myFrame.size.height = heightOffset + m_originFrame.size.height;
+        
+        
+        // top toolbar - [N - 1]位置的toolbar，如果最下层的toolbar已经处于展示状态，就不用重新算了
+        // 直接返回.
+        WDExpendableToolbar *superToolbar = objc_getAssociatedObject(self, &kWDExpendableToolbarPreviousToolbarStorageKey);
+        if (m_nextLevelToolbar && m_nextLevelToolbar.isShowing) {
+            if (superToolbar || [self isTopToolbar]) {
+                return;
+            }
+        }
+        if (m_nextLevelToolbar || [self isTopToolbar] ){
+            heightOffset += m_originFrame.size.height;
+        }
+
+        
+        myFrame.size.height = heightOffset;
+        
+        
         self.frame = myFrame;
     } else{
         
