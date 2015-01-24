@@ -141,7 +141,7 @@
     while (count > 0) {
         
         a = [NSMutableArray array];
-        int randomCount = MAX(arc4random() % 30, 10);
+        int randomCount = MAX(arc4random() % 20, 10);
         for (int i = 0 ; i< randomCount; i++) {
             
             NSString *filename = [NSString stringWithFormat:@"%02d", (arc4random()% 11 + 1)];
@@ -155,7 +155,7 @@
         }
         
         etRoot = [[WDExpendableToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44) TopItems:a extLevelexpendToolbar:etRoot];
-        etRoot.horizontalPadding = 0.1;
+        etRoot.horizontalPadding = 0.01;
         
         etRoot.delegate = self;
         count --;
